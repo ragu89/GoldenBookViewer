@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F7A5FA421E76125300B20CED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A5FA411E76125300B20CED /* main.m */; };
+		F7A5FA451E76125300B20CED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A5FA441E76125300B20CED /* AppDelegate.m */; };
+		F7A5FA481E76125300B20CED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A5FA471E76125300B20CED /* ViewController.m */; };
+		F7A5FA4B1E76125300B20CED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7A5FA491E76125300B20CED /* Main.storyboard */; };
+		F7A5FA4D1E76125300B20CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7A5FA4C1E76125300B20CED /* Assets.xcassets */; };
+		F7A5FA501E76125300B20CED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7A5FA4E1E76125300B20CED /* LaunchScreen.storyboard */; };
+		F7A5FA5B1E76125400B20CED /* GoldenBookViewerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A5FA5A1E76125400B20CED /* GoldenBookViewerUITests.m */; };
+		F7A5FA6B1E7612FF00B20CED /* AdService.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A5FA681E7612FF00B20CED /* AdService.m */; };
+		F7A5FA6C1E7612FF00B20CED /* RestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A5FA6A1E7612FF00B20CED /* RestClient.m */; };
+		F7A5FA6F1E76130900B20CED /* Ad.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A5FA6E1E76130900B20CED /* Ad.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7A5FA571E76125400B20CED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7A5FA351E76125300B20CED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7A5FA3C1E76125300B20CED;
+			remoteInfo = GoldenBookViewer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F7A5FA3D1E76125300B20CED /* GoldenBookViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenBookViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7A5FA411E76125300B20CED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F7A5FA431E76125300B20CED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F7A5FA441E76125300B20CED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F7A5FA461E76125300B20CED /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F7A5FA471E76125300B20CED /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F7A5FA4A1E76125300B20CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F7A5FA4C1E76125300B20CED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7A5FA4F1E76125300B20CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F7A5FA511E76125300B20CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7A5FA561E76125400B20CED /* GoldenBookViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenBookViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7A5FA5A1E76125400B20CED /* GoldenBookViewerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoldenBookViewerUITests.m; sourceTree = "<group>"; };
+		F7A5FA5C1E76125400B20CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7A5FA671E7612FF00B20CED /* AdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdService.h; sourceTree = "<group>"; };
+		F7A5FA681E7612FF00B20CED /* AdService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdService.m; sourceTree = "<group>"; };
+		F7A5FA691E7612FF00B20CED /* RestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestClient.h; sourceTree = "<group>"; };
+		F7A5FA6A1E7612FF00B20CED /* RestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestClient.m; sourceTree = "<group>"; };
+		F7A5FA6D1E76130900B20CED /* Ad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ad.h; sourceTree = "<group>"; };
+		F7A5FA6E1E76130900B20CED /* Ad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ad.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7A5FA3A1E76125300B20CED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7A5FA531E76125400B20CED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F7A5FA341E76125300B20CED = {
+			isa = PBXGroup;
+			children = (
+				F7A5FA3F1E76125300B20CED /* GoldenBookViewer */,
+				F7A5FA591E76125400B20CED /* GoldenBookViewerUITests */,
+				F7A5FA3E1E76125300B20CED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7A5FA3E1E76125300B20CED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7A5FA3D1E76125300B20CED /* GoldenBookViewer.app */,
+				F7A5FA561E76125400B20CED /* GoldenBookViewerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7A5FA3F1E76125300B20CED /* GoldenBookViewer */ = {
+			isa = PBXGroup;
+			children = (
+				F7A5FA661E7612ED00B20CED /* Services */,
+				F7A5FA651E7612DE00B20CED /* Model */,
+				F7A5FA431E76125300B20CED /* AppDelegate.h */,
+				F7A5FA441E76125300B20CED /* AppDelegate.m */,
+				F7A5FA461E76125300B20CED /* ViewController.h */,
+				F7A5FA471E76125300B20CED /* ViewController.m */,
+				F7A5FA491E76125300B20CED /* Main.storyboard */,
+				F7A5FA4C1E76125300B20CED /* Assets.xcassets */,
+				F7A5FA4E1E76125300B20CED /* LaunchScreen.storyboard */,
+				F7A5FA511E76125300B20CED /* Info.plist */,
+				F7A5FA401E76125300B20CED /* Supporting Files */,
+			);
+			path = GoldenBookViewer;
+			sourceTree = "<group>";
+		};
+		F7A5FA401E76125300B20CED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7A5FA411E76125300B20CED /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7A5FA591E76125400B20CED /* GoldenBookViewerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F7A5FA5A1E76125400B20CED /* GoldenBookViewerUITests.m */,
+				F7A5FA5C1E76125400B20CED /* Info.plist */,
+			);
+			path = GoldenBookViewerUITests;
+			sourceTree = "<group>";
+		};
+		F7A5FA651E7612DE00B20CED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7A5FA6D1E76130900B20CED /* Ad.h */,
+				F7A5FA6E1E76130900B20CED /* Ad.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F7A5FA661E7612ED00B20CED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F7A5FA671E7612FF00B20CED /* AdService.h */,
+				F7A5FA681E7612FF00B20CED /* AdService.m */,
+				F7A5FA691E7612FF00B20CED /* RestClient.h */,
+				F7A5FA6A1E7612FF00B20CED /* RestClient.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7A5FA3C1E76125300B20CED /* GoldenBookViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7A5FA5F1E76125400B20CED /* Build configuration list for PBXNativeTarget "GoldenBookViewer" */;
+			buildPhases = (
+				F7A5FA391E76125300B20CED /* Sources */,
+				F7A5FA3A1E76125300B20CED /* Frameworks */,
+				F7A5FA3B1E76125300B20CED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoldenBookViewer;
+			productName = GoldenBookViewer;
+			productReference = F7A5FA3D1E76125300B20CED /* GoldenBookViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F7A5FA551E76125400B20CED /* GoldenBookViewerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7A5FA621E76125400B20CED /* Build configuration list for PBXNativeTarget "GoldenBookViewerUITests" */;
+			buildPhases = (
+				F7A5FA521E76125400B20CED /* Sources */,
+				F7A5FA531E76125400B20CED /* Frameworks */,
+				F7A5FA541E76125400B20CED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7A5FA581E76125400B20CED /* PBXTargetDependency */,
+			);
+			name = GoldenBookViewerUITests;
+			productName = GoldenBookViewerUITests;
+			productReference = F7A5FA561E76125400B20CED /* GoldenBookViewerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7A5FA351E76125300B20CED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Guye, Raphael";
+				TargetAttributes = {
+					F7A5FA3C1E76125300B20CED = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					F7A5FA551E76125400B20CED = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F7A5FA3C1E76125300B20CED;
+					};
+				};
+			};
+			buildConfigurationList = F7A5FA381E76125300B20CED /* Build configuration list for PBXProject "GoldenBookViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7A5FA341E76125300B20CED;
+			productRefGroup = F7A5FA3E1E76125300B20CED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7A5FA3C1E76125300B20CED /* GoldenBookViewer */,
+				F7A5FA551E76125400B20CED /* GoldenBookViewerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7A5FA3B1E76125300B20CED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7A5FA501E76125300B20CED /* LaunchScreen.storyboard in Resources */,
+				F7A5FA4D1E76125300B20CED /* Assets.xcassets in Resources */,
+				F7A5FA4B1E76125300B20CED /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7A5FA541E76125400B20CED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7A5FA391E76125300B20CED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7A5FA6B1E7612FF00B20CED /* AdService.m in Sources */,
+				F7A5FA481E76125300B20CED /* ViewController.m in Sources */,
+				F7A5FA451E76125300B20CED /* AppDelegate.m in Sources */,
+				F7A5FA6C1E7612FF00B20CED /* RestClient.m in Sources */,
+				F7A5FA6F1E76130900B20CED /* Ad.m in Sources */,
+				F7A5FA421E76125300B20CED /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7A5FA521E76125400B20CED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7A5FA5B1E76125400B20CED /* GoldenBookViewerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7A5FA581E76125400B20CED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7A5FA3C1E76125300B20CED /* GoldenBookViewer */;
+			targetProxy = F7A5FA571E76125400B20CED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F7A5FA491E76125300B20CED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7A5FA4A1E76125300B20CED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F7A5FA4E1E76125300B20CED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7A5FA4F1E76125300B20CED /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7A5FA5D1E76125400B20CED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F7A5FA5E1E76125400B20CED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7A5FA601E76125400B20CED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GoldenBookViewer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ragu.GoldenBookViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F7A5FA611E76125400B20CED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GoldenBookViewer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ragu.GoldenBookViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F7A5FA631E76125400B20CED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GoldenBookViewerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ragu.GoldenBookViewerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GoldenBookViewer;
+			};
+			name = Debug;
+		};
+		F7A5FA641E76125400B20CED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GoldenBookViewerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ragu.GoldenBookViewerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GoldenBookViewer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7A5FA381E76125300B20CED /* Build configuration list for PBXProject "GoldenBookViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7A5FA5D1E76125400B20CED /* Debug */,
+				F7A5FA5E1E76125400B20CED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7A5FA5F1E76125400B20CED /* Build configuration list for PBXNativeTarget "GoldenBookViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7A5FA601E76125400B20CED /* Debug */,
+				F7A5FA611E76125400B20CED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F7A5FA621E76125400B20CED /* Build configuration list for PBXNativeTarget "GoldenBookViewerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7A5FA631E76125400B20CED /* Debug */,
+				F7A5FA641E76125400B20CED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7A5FA351E76125300B20CED /* Project object */;
+}
