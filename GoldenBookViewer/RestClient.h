@@ -14,5 +14,6 @@
 
 -(void)downloadImageDataForPhotoId:(NSString*)photoId
                  completionHandler:(void (^)(NSData *responseData, NSError *error))completionHandler;
+-(void)getAdsWithCompletionHandler:(void (^)(NSArray *ads, NSError *error))completionHandler;
 
 @end

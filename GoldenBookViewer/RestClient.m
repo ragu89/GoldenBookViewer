@@ -7,6 +7,7 @@
 //
 
 #import "RestClient.h"
+#import "Ad.h"
 
 @implementation RestClient
 
@@ -48,6 +49,53 @@
                                                                completionHandler(nil, error);
                                                            }
                                                            
+                                                       }];
+    [dataTask resume];
+}
+
+-(void)getAdsWithCompletionHandler:(void (^)(NSArray *ads, NSError *error))completionHandler
+{
+    NSURL *url = [NSURL URLWithString:
+                  [NSString stringWithFormat:@"https://goldenbook.azurewebsites.net/tables/ad?ZUMO-API-VERSION=2.0.0"]];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url
+                                                              cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                          timeoutInterval:30.0];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: configuration
+                                                                 delegate: self
+                                                            delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
+                                                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                           NSLog(@"Response:%@ %@\n", response, error);
+                                                           if(error == nil)
+                                                           {
+                                                               NSMutableArray *ads = [NSMutableArray new];
+                                                               
+                                                               NSError *serializeError;
+                                                               NSDictionary *jsonData = [NSJSONSerialization
+                                                                                         JSONObjectWithData:data
+                                                                                         options:NSJSONReadingMutableContainers
+                                                                                         error:&serializeError];
+                                                               
+                                                               for (NSDictionary *dictAd in jsonData)
+                                                               {
+                                                                   Ad *ad = [Ad new];
+                                                                   ad.photoId = dictAd[@"photoId"];
+                                                                   ad.message = dictAd[@"message"];
+                                                                   
+                                                                   [ads addObject:ad];
+                                                               }
+                                                               
+                                                               completionHandler([ads copy], nil);
+                                                           }
+                                                           else
+                                                           {
+                                                               completionHandler(nil, error);
+                                                           }
                                                        }];
     [dataTask resume];
 }
