@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "RestClient.h"
+#import "Ad.h"
 
 @interface RestClientTest : XCTestCase
 
@@ -41,6 +42,13 @@
     {
         XCTAssertNotNil(ads);
         XCTAssertTrue(ads.count > 0);
+        
+        for(Ad *ad in ads)
+        {
+            XCTAssertTrue((ad.name != nil && [ad.name isKindOfClass:[NSString class]] && ad.name.length > 0)
+                          || (ad.photoId != nil && [ad.photoId isKindOfClass:[NSString class]] && ad.photoId.length > 0)
+                          || (ad.message != nil && [ad.message isKindOfClass:[NSString class]] && ad.message.length > 0));
+        }
         
         [openExpectation fulfill];
     }];

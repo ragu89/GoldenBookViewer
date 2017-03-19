@@ -84,10 +84,16 @@
                                                                for (NSDictionary *dictAd in jsonData)
                                                                {
                                                                    Ad *ad = [Ad new];
+                                                                   ad.name = dictAd[@"firstName"];
                                                                    ad.photoId = dictAd[@"photoId"];
                                                                    ad.message = dictAd[@"message"];
                                                                    
-                                                                   [ads addObject:ad];
+                                                                   if([ad.name isKindOfClass:[NSString class]]
+                                                                      || [ad.photoId isKindOfClass:[NSString class]]
+                                                                      || [ad.message isKindOfClass:[NSString class]])
+                                                                   {
+                                                                       [ads addObject:ad];
+                                                                   }
                                                                }
                                                                
                                                                completionHandler([ads copy], nil);
