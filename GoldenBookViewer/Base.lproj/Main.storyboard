@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbX-dM-wR6">
-                                <rect key="frame" x="16" y="28" width="343" height="619"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbX-dM-wR6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LMv-yu-66S">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
@@ -31,14 +30,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="xbX-dM-wR6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="5KS-8O-2Vi"/>
+                            <constraint firstItem="xbX-dM-wR6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5b5-x6-O8B"/>
                             <constraint firstItem="LMv-yu-66S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KHC-U2-dWD"/>
                             <constraint firstItem="LMv-yu-66S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OqW-0r-pPb"/>
-                            <constraint firstItem="xbX-dM-wR6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="bI8-bN-H1n"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xbX-dM-wR6" secondAttribute="trailing" id="hvJ-ok-UTs"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xbX-dM-wR6" secondAttribute="bottom" constant="20" id="oVA-K9-UKe"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="xbX-dM-wR6" secondAttribute="leading" id="wrr-Ay-F8R"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xbX-dM-wR6" secondAttribute="bottom" id="PE6-UW-sSb"/>
+                            <constraint firstAttribute="trailing" secondItem="xbX-dM-wR6" secondAttribute="trailing" id="aPc-YQ-MBJ"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="xbX-dM-wR6" id="ViC-9d-ggR"/>
                         <outlet property="progressRing" destination="LMv-yu-66S" id="sta-fH-Neb"/>
