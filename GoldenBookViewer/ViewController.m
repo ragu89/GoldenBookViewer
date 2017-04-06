@@ -61,17 +61,10 @@
 }
 
 - (void)loadImageView {
-    
     [_progressRing startAnimating];
     
-    [self.adService downloadImageWithcompletionHandler:^(NSData *responseData, NSError *error) {
-        if(error == nil && responseData != nil)
-        {
-            UIImage *image = [[UIImage alloc] initWithData:responseData];
-            
-            [self.imageView setImage:image];
-            [self.progressRing stopAnimating];
-        }
+    [self.adService synchronizeAdsWithCompletionHandler:^{
+        [_progressRing stopAnimating];
     }];
 }
 

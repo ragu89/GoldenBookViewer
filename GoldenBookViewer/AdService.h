@@ -10,6 +10,8 @@
 
 @interface AdService : NSObject
 
--(void)downloadImageWithcompletionHandler:(void (^)(NSData *responseData, NSError *error))completionHandler;
+-(void)synchronizeAdsWithCompletionHandler:(void (^)())completionHandler;
+
+-(void)downloadImagesForPhotos:(NSArray*)photoIds withCompletionHandler:(void (^)())completionHandler;
 
 @end

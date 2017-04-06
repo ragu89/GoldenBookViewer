@@ -37,15 +37,17 @@
                                                                  delegate: self
                                                             delegateQueue: [NSOperationQueue mainQueue]];
     
+    NSLog(@"Trying to download photo with id %@", photoId);
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                           NSLog(@"Response:%@ %@\n", response, error);
                                                            if(error == nil)
                                                            {
+                                                               NSLog(@"Photo with id %@ correctly downloaded", photoId);
                                                                completionHandler(data, nil);
                                                            }
                                                            else
                                                            {
+                                                               NSLog(@"Error when trying to download photo with id %@", photoId);
                                                                completionHandler(nil, error);
                                                            }
                                                            
@@ -84,6 +86,7 @@
                                                                for (NSDictionary *dictAd in jsonData)
                                                                {
                                                                    Ad *ad = [Ad new];
+                                                                   ad.adId = dictAd[@"id"];
                                                                    ad.name = dictAd[@"firstName"];
                                                                    ad.photoId = dictAd[@"photoId"];
                                                                    ad.message = dictAd[@"message"];
