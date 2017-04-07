@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSString *photoId;
 
+-(NSDictionary*)convertToNSDictionary;
 
 @end

@@ -15,36 +15,62 @@
 
 -(void)synchronizeAdsWithCompletionHandler:(void (^)())completionHandler
 {
-    NSMutableDictionary *adsDict = [[NSMutableDictionary alloc] init];
-    
     [[RestClient sharedInstance] getAdsWithCompletionHandler:^(NSArray *ads, NSError *error) {
         
         if(error != nil) return;
         
-        for (Ad *ad in ads) {
-            [adsDict setObject:ad.photoId forKey:ad.adId];
-        }
+        [self saveInPlistFile:ads];
         
-        [self downloadImagesForPhotos:[adsDict allValues] withCompletionHandler:completionHandler];
+        [self downloadImagesForPhotos:ads withCompletionHandler:completionHandler];
     }];
 }
 
--(void)downloadImagesForPhotos:(NSArray*)photoIds withCompletionHandler:(void (^)())completionHandler
+-(void)saveInPlistFile:(NSArray*)ads {
+    NSString *plistName = @"ads.json";
+    NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", plistName]];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    if([fm fileExistsAtPath:filepath]) {
+        [fm removeItemAtPath:filepath error:nil];
+    }
+    
+    NSMutableArray *adsForJson = [NSMutableArray new];
+    for(Ad *ad in ads) {
+        [adsForJson addObject:[ad convertToNSDictionary]];
+    }
+    
+    NSError *writeError;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:adsForJson options:NSJSONWritingPrettyPrinted error:&writeError];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"JSON Output: %@", jsonString);
+    
+    writeError = nil;
+    BOOL isFileSaved = [jsonString writeToFile:filepath
+                                    atomically:YES
+                                      encoding:NSUTF8StringEncoding
+                                         error:&writeError];
+    
+    if(!isFileSaved) {
+        NSLog(@"plist not correctly saved");
+    }
+}
+
+-(void)downloadImagesForPhotos:(NSArray*)ads withCompletionHandler:(void (^)())completionHandler
 {
     __block int i = 0;
-    for(NSString *photoId in photoIds) {
+    for(Ad *ad in ads) {
         
         i++;
         
-        if(photoId != nil && [self isPhotoMissing:photoId]) {
-            [[RestClient sharedInstance] downloadImageDataForPhotoId:photoId
+        if(ad.photoId != nil && [self isPhotoMissing:ad.photoId]) {
+            [[RestClient sharedInstance] downloadImageDataForPhotoId:ad.photoId
                                                    completionHandler:^(NSData *responseData, NSError *error) {
                                                        
                                                        if(error == nil) {
-                                                           [self savePhoto:responseData filename:photoId];
+                                                           [self savePhoto:responseData filename:ad.photoId];
                                                        }
                                                        
-                                                       if(i >= photoIds.count) {
+                                                       if(i >= ads.count) {
                                                            completionHandler(); // Doesn't work
                                                        }
                                                    }];
@@ -53,9 +79,7 @@
 }
 
 -(BOOL)isPhotoMissing:(NSString*)photoId {
-    NSString *libraryDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *cacheDir = [libraryDir stringByAppendingPathComponent:@"Caches"];
-    NSString *filepath = [cacheDir stringByAppendingString:[NSString stringWithFormat:@"/%@", photoId]];
+    NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", photoId]];
     
     NSData *file = [NSData dataWithContentsOfFile:filepath];
     
@@ -67,9 +91,7 @@
 }
 
 -(void)savePhoto:(NSData*)data filename:(NSString*)filename {
-    NSString *libraryDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *cacheDir = [libraryDir stringByAppendingPathComponent:@"Caches"];
-    NSString *filepath = [cacheDir stringByAppendingString:[NSString stringWithFormat:@"/%@", filename]];
+    NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", filename]];
     
     NSError *error;
     [data writeToFile:filepath options:NSDataWritingAtomic error:&error];
@@ -77,6 +99,12 @@
     if(error != nil) {
         NSLog(@"Error when trying to save file %@", filename);
     }
+}
+
+-(NSString*)getCacheFilepath {
+    NSString *libraryDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *cacheDir = [libraryDir stringByAppendingPathComponent:@"Caches"];
+    return cacheDir;
 }
 
 @end

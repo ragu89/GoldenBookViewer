@@ -6,16 +6,16 @@
 //  Copyright © 2017 Guye, Raphael. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SlideshowViewController.h"
 #import "AdService.h"
 
-@interface ViewController ()
+@interface SlideshowViewController ()
 
 @property(nonatomic, strong) AdService *adService;
 
 @end
 
-@implementation ViewController
+@implementation SlideshowViewController
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -61,11 +61,6 @@
 }
 
 - (void)loadImageView {
-    [_progressRing startAnimating];
-    
-    [self.adService synchronizeAdsWithCompletionHandler:^{
-        [_progressRing stopAnimating];
-    }];
 }
 
 
