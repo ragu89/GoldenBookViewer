@@ -32,7 +32,7 @@
     self.adService = [AdService new]; //TODO : Use IoC
     self.slideShowPosition = 0;
     self.tapOnPhotoGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                action:@selector(showNextAd)];
+                                                                action:@selector(imageView_click)];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -54,17 +54,21 @@
 
 - (void)startSlideshow {
     [self.imageView addGestureRecognizer:self.tapOnPhotoGesture];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0
-                                                 repeats:YES
-                                                   block:^(NSTimer * _Nonnull timer) {
-                                                       [self showNextAd];
-                                                   }];
+    
+    self.timer = [self createAndStartTimerForInterval:5.0];
+    
     [self showNextAd]; // Show the first ad manually, before the first timer interval 
 }
 
 - (void)stopSlideshow {
     [self.timer invalidate];
     [self.imageView removeGestureRecognizer:self.tapOnPhotoGesture];
+}
+
+- (void)imageView_click {
+    [self.timer invalidate]; // Stop the current timer to avoid the next switch already scheduled
+    [self showNextAd];
+    self.timer = [self createAndStartTimerForInterval:5.0];
 }
 
 - (void)showNextAd {
@@ -102,6 +106,14 @@
     }
     
     [self.view layoutIfNeeded];
+}
+
+- (NSTimer*)createAndStartTimerForInterval:(NSTimeInterval)interval {
+    return [NSTimer scheduledTimerWithTimeInterval:interval
+                                           repeats:YES
+                                             block:^(NSTimer * _Nonnull timer) {
+                                                 [self showNextAd];
+                                             }];
 }
 
 @end
