@@ -89,9 +89,15 @@
                                                                {
                                                                    Ad *ad = [Ad new];
                                                                    ad.adId = dictAd[@"id"];
-                                                                   ad.name = dictAd[@"firstName"];
-                                                                   ad.photoId = dictAd[@"photoId"];
-                                                                   ad.message = dictAd[@"message"];
+                                                                   if([dictAd[@"firstName"] isKindOfClass:[NSString class]]) {
+                                                                       ad.name = dictAd[@"firstName"];
+                                                                   }
+                                                                   if([dictAd[@"photoId"] isKindOfClass:[NSString class]]) {
+                                                                       ad.photoId = dictAd[@"photoId"];
+                                                                   }
+                                                                   if([dictAd[@"message"] isKindOfClass:[NSString class]]) {
+                                                                       ad.message = dictAd[@"message"];
+                                                                   }
                                                                    
                                                                    if([ad.name isKindOfClass:[NSString class]]
                                                                       || [ad.photoId isKindOfClass:[NSString class]]
