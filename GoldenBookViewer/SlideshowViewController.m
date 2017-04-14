@@ -81,12 +81,27 @@
         }
     }
     
+    if([ad.name isKindOfClass:[NSString class]]) {
+        self.nameLabel.text = ad.name;
+    } else {
+        self.nameLabel.text = @"";
+    }
+    
+    if([ad.message isKindOfClass:[NSString class]]) {
+        self.messageLabel.text = ad.message;
+    } else {
+        self.messageLabel.text = @"";
+    }
+    
+    self.imageView.image = nil;
     if([ad.photoId isKindOfClass:[NSString class]]) {
         NSData *data = [self.adService getPhotoForId:ad.photoId];
         if(data != nil) {
             self.imageView.image = [UIImage imageWithData:data];
         }
     }
+    
+    [self.view layoutIfNeeded];
 }
 
 @end

@@ -89,28 +89,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbX-dM-wR6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQ9-fH-Vmq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="588.5"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azm-fs-7ms">
+                                <rect key="frame" x="8" y="604.5" width="359" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VON-E2-wMr">
+                                <rect key="frame" x="8" y="633" width="359" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="xbX-dM-wR6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="5KS-8O-2Vi"/>
-                            <constraint firstItem="xbX-dM-wR6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5b5-x6-O8B"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xbX-dM-wR6" secondAttribute="bottom" id="PE6-UW-sSb"/>
-                            <constraint firstAttribute="trailing" secondItem="xbX-dM-wR6" secondAttribute="trailing" id="aPc-YQ-MBJ"/>
+                            <constraint firstAttribute="trailing" secondItem="azm-fs-7ms" secondAttribute="trailing" constant="8" id="51Q-pb-fm6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VON-E2-wMr" secondAttribute="bottom" constant="16" id="5n4-AV-Wlb"/>
+                            <constraint firstItem="VON-E2-wMr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="5vV-2Y-qwH"/>
+                            <constraint firstItem="azm-fs-7ms" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="DyK-Bu-BYI"/>
+                            <constraint firstItem="aQ9-fH-Vmq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Pol-tD-4KJ"/>
+                            <constraint firstItem="VON-E2-wMr" firstAttribute="top" secondItem="azm-fs-7ms" secondAttribute="bottom" constant="8" id="WtG-3x-L0b"/>
+                            <constraint firstItem="azm-fs-7ms" firstAttribute="top" secondItem="aQ9-fH-Vmq" secondAttribute="bottom" constant="16" id="axh-D2-HSm"/>
+                            <constraint firstItem="aQ9-fH-Vmq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gYk-uq-tAX"/>
+                            <constraint firstAttribute="trailing" secondItem="VON-E2-wMr" secondAttribute="trailing" constant="8" id="wyk-wZ-U0h"/>
+                            <constraint firstAttribute="trailing" secondItem="aQ9-fH-Vmq" secondAttribute="trailing" id="y8w-rh-e93"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="imageView" destination="xbX-dM-wR6" id="ViC-9d-ggR"/>
+                        <outlet property="imageView" destination="aQ9-fH-Vmq" id="iAG-ms-bq6"/>
+                        <outlet property="messageLabel" destination="VON-E2-wMr" id="MBY-79-3Se"/>
+                        <outlet property="nameLabel" destination="azm-fs-7ms" id="PG6-ea-oSs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="139"/>
+            <point key="canvasLocation" x="589.60000000000002" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
