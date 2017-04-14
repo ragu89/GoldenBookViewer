@@ -63,20 +63,28 @@
     __block int i = 0;
     for(Ad *ad in ads) {
         
-        i++;
-        
         if(ad.photoId != nil && [self isPhotoMissing:ad.photoId]) {
             [[RestClient sharedInstance] downloadImageDataForPhotoId:ad.photoId
                                                    completionHandler:^(NSData *responseData, NSError *error) {
+                                                       
+                                                       i++;
                                                        
                                                        if(error == nil) {
                                                            [self savePhoto:responseData filename:ad.photoId];
                                                        }
                                                        
                                                        if(i >= ads.count) {
-                                                           completionHandler(); // Doesn't work
+                                                           NSLog(@"All the photos have been downloaded");
+                                                           completionHandler();
                                                        }
                                                    }];
+        } else {
+            i++;
+            
+            if(i >= ads.count) {
+                NSLog(@"All the photos have been downloaded");
+                completionHandler(); // Doesn't work
+            }
         }
     }
 }
