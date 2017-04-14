@@ -141,6 +141,26 @@
     return [NSArray arrayWithArray:ads];
 }
 
+-(NSData*)getPhotoForId:(NSString*)photoId {
+    
+    NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", photoId]];
+    NSError *error;
+    
+    NSLog(@"Trying to recover the photo from filepath %@", filepath);
+    
+    NSData *photo = [NSData dataWithContentsOfFile:filepath
+                                           options:NSDataReadingUncached
+                                             error:&error];
+    
+    if(error != nil || photo == nil) {
+        NSLog(@"KO - Error when trying to recover NSData from file");
+        return nil;
+    } else {
+        NSLog(@"OK - photo correctly recovered");
+        return photo;
+    }
+}
+
 -(BOOL)isPhotoMissing:(NSString*)photoId {
     NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", photoId]];
     

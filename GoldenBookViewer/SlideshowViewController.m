@@ -8,10 +8,13 @@
 
 #import "SlideshowViewController.h"
 #import "AdService.h"
+#import "Ad.h"
 
 @interface SlideshowViewController ()
 
 @property(nonatomic, strong) AdService *adService;
+@property(nonatomic, strong) NSArray *ads;
+@property(atomic, assign) int slideShowPosition;
 
 @end
 
@@ -22,7 +25,8 @@
     self = [super initWithCoder:aDecoder];
     
     if (self) {
-        _adService = [AdService new]; //TODO : Use IoC
+        self.adService = [AdService new]; //TODO : Use IoC
+        self.slideShowPosition = 0;
     }
     return self;
 }
@@ -32,7 +36,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
-        _adService = [AdService new]; //TODO : Use IoC
+        self.adService = [AdService new]; //TODO : Use IoC
     }
     return self;
 }
@@ -41,7 +45,7 @@
 {
     self = [super init];
     if (self) {
-        _adService = [AdService new]; //TODO : Use IoC
+        self.adService = [AdService new]; //TODO : Use IoC
     }
     return self;
 }
@@ -50,10 +54,17 @@
     return YES;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    self.ads = [self.adService getAdsList];
     [self startSlideshow];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self stopSlideshow];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,11 +72,35 @@
 }
 
 - (void)startSlideshow {
-    NSArray *ads = [_adService getAdsList];
+    //TODO start the timer
+    
+    [self showNextAd];
 }
 
+- (void)stopSlideshow {
+    //TODO: stop the timer
+}
 
-
-
+- (void)showNextAd {
+    if(self.ads == nil || self.ads.count == 0) return;
+    
+    Ad *ad;
+    while (ad == nil)
+    {
+        ad = self.ads[self.slideShowPosition];
+        self.slideShowPosition++;
+        
+        if(self.slideShowPosition >= self.ads.count - 1) {
+            self.slideShowPosition = 0;
+        }
+    }
+    
+    if([ad.photoId isKindOfClass:[NSString class]]) {
+        NSData *data = [self.adService getPhotoForId:ad.photoId];
+        if(data != nil) {
+            self.imageView.image = [UIImage imageWithData:data];
+        }
+    }
+}
 
 @end

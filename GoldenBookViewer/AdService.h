@@ -16,4 +16,6 @@
 
 -(NSArray*)getAdsList;
 
+-(NSData*)getPhotoForId:(NSString*)photoId;
+
 @end
