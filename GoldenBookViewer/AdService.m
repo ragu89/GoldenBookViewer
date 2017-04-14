@@ -89,6 +89,58 @@
     }
 }
 
+-(NSArray*)getAdsList {
+    NSString *fileName = @"ads.json";
+    NSString *cacheDir = [self getCacheFilepath];
+    NSString *filepath = [cacheDir stringByAppendingString:[NSString stringWithFormat:@"/%@", fileName]];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    if(![fm fileExistsAtPath:filepath]) {
+        NSLog(@"The file %@ doesn't exist in %@", fileName, cacheDir);
+        return [NSArray new];
+    }
+    
+    NSLog(@"Trying to deserialize json file %@", filepath);
+    
+    NSData *data = [NSData dataWithContentsOfFile:filepath];
+    NSError *error = nil;
+    NSArray *jsonAds = [NSJSONSerialization JSONObjectWithData:data
+                                              options:kNilOptions
+                                                error:&error];
+    
+    if(error != nil || jsonAds == nil) {
+        NSLog(@"KO - Error when trying to deserialize the json file : %@", error);
+    } else {
+        NSLog(@"OK - JSON file correctly deserialized. %lu items found.", (unsigned long)jsonAds.count);
+    }
+    
+    NSMutableArray *ads = [NSMutableArray new];
+    for(NSDictionary *dictAd in jsonAds) {
+        if(![dictAd isKindOfClass:[NSDictionary class]]) continue;
+        
+        Ad *ad = [Ad new];
+        
+        if([dictAd[@"adId"] isKindOfClass:[NSString class]]) {
+            ad.adId = dictAd[@"adId"];
+        }
+        if([dictAd[@"message"] isKindOfClass:[NSString class]]) {
+            ad.message = dictAd[@"message"];
+        }
+        if([dictAd[@"name"] isKindOfClass:[NSString class]]) {
+            ad.name = dictAd[@"name"];
+        }
+        if([dictAd[@"photoId"] isKindOfClass:[NSString class]]) {
+            ad.photoId = dictAd[@"photoId"];
+        }
+        
+        [ads addObject:ad];
+    }
+    
+    NSLog(@"%lu entities created from the json", (unsigned long)ads.count);
+    
+    return [NSArray arrayWithArray:ads];
+}
+
 -(BOOL)isPhotoMissing:(NSString*)photoId {
     NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", photoId]];
     

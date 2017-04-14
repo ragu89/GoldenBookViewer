@@ -53,14 +53,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadImageView];
+    [self startSlideshow];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)loadImageView {
+- (void)startSlideshow {
+    NSArray *ads = [_adService getAdsList];
 }
 
 

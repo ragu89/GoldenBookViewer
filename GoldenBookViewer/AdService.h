@@ -14,4 +14,6 @@
 
 -(void)downloadImagesForPhotos:(NSArray*)photoIds withCompletionHandler:(void (^)())completionHandler;
 
+-(NSArray*)getAdsList;
+
 @end
