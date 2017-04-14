@@ -42,7 +42,8 @@
     NSError *writeError;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:adsForJson options:NSJSONWritingPrettyPrinted error:&writeError];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"JSON Output: %@", jsonString);
+    
+    NSLog(@"Try to save json file in %@", filepath);
     
     writeError = nil;
     BOOL isFileSaved = [jsonString writeToFile:filepath
@@ -51,7 +52,9 @@
                                          error:&writeError];
     
     if(!isFileSaved) {
-        NSLog(@"plist not correctly saved");
+        NSLog(@"KO - JSON file not correctly saved");
+    } else {
+        NSLog(@"OK - JSON file correctly saved");
     }
 }
 
@@ -93,11 +96,15 @@
 -(void)savePhoto:(NSData*)data filename:(NSString*)filename {
     NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", filename]];
     
+    NSLog(@"Try to save photo in %@", filepath);
+    
     NSError *error;
     [data writeToFile:filepath options:NSDataWritingAtomic error:&error];
     
-    if(error != nil) {
-        NSLog(@"Error when trying to save file %@", filename);
+    if(error == nil) {
+        NSLog(@"OK - photo correctly saved");
+    } else {
+        NSLog(@"KO - photo not correctly saved");
     }
 }
 

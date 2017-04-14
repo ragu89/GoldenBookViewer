@@ -37,17 +37,17 @@
                                                                  delegate: self
                                                             delegateQueue: [NSOperationQueue mainQueue]];
     
-    NSLog(@"Trying to download photo with id %@", photoId);
+    NSLog(@"Try to download photo with id %@", photoId);
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                            if(error == nil)
                                                            {
-                                                               NSLog(@"Photo with id %@ correctly downloaded", photoId);
+                                                               NSLog(@"OK - Photo with id %@ correctly downloaded", photoId);
                                                                completionHandler(data, nil);
                                                            }
                                                            else
                                                            {
-                                                               NSLog(@"Error when trying to download photo with id %@", photoId);
+                                                               NSLog(@"KO - Error when trying to download photo with id %@", photoId);
                                                                completionHandler(nil, error);
                                                            }
                                                            
@@ -70,11 +70,13 @@
                                                                  delegate: self
                                                             delegateQueue: [NSOperationQueue mainQueue]];
     
+    NSLog(@"Try to download the ads list from %@", url.absoluteString);
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                           NSLog(@"Response:%@ %@\n", response, error);
                                                            if(error == nil)
                                                            {
+                                                               NSLog(@"OK - Ads list correctly downloaded");
+                                                               
                                                                NSMutableArray *ads = [NSMutableArray new];
                                                                
                                                                NSError *serializeError;
@@ -103,6 +105,7 @@
                                                            }
                                                            else
                                                            {
+                                                               NSLog(@"KO - Ads list not correctly downloaded");
                                                                completionHandler(nil, error);
                                                            }
                                                        }];
