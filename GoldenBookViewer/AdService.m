@@ -21,7 +21,7 @@
         
         if(error != nil) return;
         
-        [self saveInPlistFile:ads];
+        [self saveInJSONFile:ads];
         
         [self downloadImagesForPhotos:ads withCompletionHandler:completionHandler];
     }];
@@ -144,9 +144,9 @@
     }
 }
 
--(void)saveInPlistFile:(NSArray*)ads {
-    NSString *plistName = @"ads.json";
-    NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", plistName]];
+-(void)saveInJSONFile:(NSArray*)ads {
+    NSString *filename = @"ads.json";
+    NSString *filepath = [[self getCacheFilepath] stringByAppendingString:[NSString stringWithFormat:@"/%@", filename]];
     NSFileManager *fm = [NSFileManager defaultManager];
     
     if([fm fileExistsAtPath:filepath]) {

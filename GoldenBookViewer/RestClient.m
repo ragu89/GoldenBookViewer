@@ -9,7 +9,15 @@
 #import "RestClient.h"
 #import "Ad.h"
 
+@interface RestClient ()
+
+@property(atomic, strong) NSMutableArray *ads;
+
+@end
+
 @implementation RestClient
+
+static const int getQueryTop = 49;
 
 + (instancetype)sharedInstance
 {
@@ -57,8 +65,17 @@
 
 -(void)getAdsWithCompletionHandler:(void (^)(NSArray *ads, NSError *error))completionHandler
 {
+    self.ads = [NSMutableArray new];
+    
+    [self getAdsWithTop:getQueryTop
+                   skip:0
+      completionHandler:completionHandler];
+}
+
+-(void)getAdsWithTop:(int)top skip:(int)skip completionHandler:(void (^)(NSArray *ads, NSError *error))completionHandler
+{
     NSURL *url = [NSURL URLWithString:
-                  [NSString stringWithFormat:@"https://goldenbook.azurewebsites.net/tables/ad?ZUMO-API-VERSION=2.0.0"]];
+                  [NSString stringWithFormat:@"https://goldenbook.azurewebsites.net/tables/ad?ZUMO-API-VERSION=2.0.0&$top=%d&$skip=%d",top,skip]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url
                                                               cachePolicy:NSURLRequestReloadIgnoringCacheData
                                                           timeoutInterval:30.0];
@@ -77,13 +94,16 @@
                                                            {
                                                                NSLog(@"OK - Ads list correctly downloaded");
                                                                
-                                                               NSMutableArray *ads = [NSMutableArray new];
-                                                               
                                                                NSError *serializeError;
-                                                               NSDictionary *jsonData = [NSJSONSerialization
+                                                               NSArray *jsonData = [NSJSONSerialization
                                                                                          JSONObjectWithData:data
                                                                                          options:NSJSONReadingMutableContainers
                                                                                          error:&serializeError];
+                                                               
+                                                               if(jsonData == nil || jsonData.count == 0) {
+                                                                   completionHandler([NSArray arrayWithArray:self.ads], nil);
+                                                                   return;
+                                                               }
                                                                
                                                                for (NSDictionary *dictAd in jsonData)
                                                                {
@@ -103,11 +123,13 @@
                                                                       || [ad.photoId isKindOfClass:[NSString class]]
                                                                       || [ad.message isKindOfClass:[NSString class]])
                                                                    {
-                                                                       [ads addObject:ad];
+                                                                       [self.ads addObject:ad];
                                                                    }
                                                                }
                                                                
-                                                               completionHandler([ads copy], nil);
+                                                               [self getAdsWithTop:top + getQueryTop
+                                                                              skip:skip + getQueryTop
+                                                                 completionHandler:completionHandler];
                                                            }
                                                            else
                                                            {
