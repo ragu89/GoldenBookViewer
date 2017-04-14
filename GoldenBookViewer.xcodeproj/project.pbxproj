@@ -201,6 +201,7 @@
 				TargetAttributes = {
 					F7A5FA3C1E76125300B20CED = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = QQP86RXPPB;
 						ProvisioningStyle = Automatic;
 					};
 					F7A5FA551E76125400B20CED = {
@@ -399,9 +400,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = QQP86RXPPB;
 				INFOPLIST_FILE = GoldenBookViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.ragu.GoldenBookViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ragu.goldenbookviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -410,9 +413,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Raphael Guye (QQP86RXPPB)";
+				DEVELOPMENT_TEAM = QQP86RXPPB;
 				INFOPLIST_FILE = GoldenBookViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.ragu.GoldenBookViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ragu.goldenbookviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
