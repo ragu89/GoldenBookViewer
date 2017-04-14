@@ -16,6 +16,7 @@
 @property(nonatomic, strong) NSArray *ads;
 @property(atomic, assign) int slideShowPosition;
 @property(nonatomic, strong) UIGestureRecognizer *tapOnPhotoGesture;
+@property(nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -52,15 +53,17 @@
 }
 
 - (void)startSlideshow {
-    //TODO start the timer
-    
     [self.imageView addGestureRecognizer:self.tapOnPhotoGesture];
-    [self showNextAd];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0
+                                                 repeats:YES
+                                                   block:^(NSTimer * _Nonnull timer) {
+                                                       [self showNextAd];
+                                                   }];
+    [self showNextAd]; // Show the first ad manually, before the first timer interval 
 }
 
 - (void)stopSlideshow {
-    //TODO: stop the timer
-    
+    [self.timer invalidate];
     [self.imageView removeGestureRecognizer:self.tapOnPhotoGesture];
 }
 
