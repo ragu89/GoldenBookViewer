@@ -15,43 +15,23 @@
 @property(nonatomic, strong) AdService *adService;
 @property(nonatomic, strong) NSArray *ads;
 @property(atomic, assign) int slideShowPosition;
+@property(nonatomic, strong) UIGestureRecognizer *tapOnPhotoGesture;
 
 @end
 
 @implementation SlideshowViewController
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    
-    if (self) {
-        self.adService = [AdService new]; //TODO : Use IoC
-        self.slideShowPosition = 0;
-    }
-    return self;
-}
-
--(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        self.adService = [AdService new]; //TODO : Use IoC
-    }
-    return self;
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.adService = [AdService new]; //TODO : Use IoC
-    }
-    return self;
-}
-
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.adService = [AdService new]; //TODO : Use IoC
+    self.slideShowPosition = 0;
+    self.tapOnPhotoGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                action:@selector(showNextAd)];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -74,11 +54,14 @@
 - (void)startSlideshow {
     //TODO start the timer
     
+    [self.imageView addGestureRecognizer:self.tapOnPhotoGesture];
     [self showNextAd];
 }
 
 - (void)stopSlideshow {
     //TODO: stop the timer
+    
+    [self.imageView removeGestureRecognizer:self.tapOnPhotoGesture];
 }
 
 - (void)showNextAd {
